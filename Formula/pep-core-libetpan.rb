@@ -1,13 +1,11 @@
 class PepCoreLibetpan < Formula
-  desc ""
-  homepage ""
-  version "0.1"
-  #url "https://software.pep.foundation/enigmail/source/libetpan-0.1.tar.gz"
-  url "file:///Users/claudio/pep/libetpan-0.1.tar.gz"
+  desc "Mail Framework for C Language"
+  homepage "http://www.etpan.org"
+  version "1.6"
 
-  sha256 "6a7d325821c928816c607a955953989be064378351c1bd280006e60dc883b298"
+  url "https://github.com/fdik/libetpan/archive/cc4c5c5e3eb3d294fc58710d10821de4748b4df2.zip"
+  sha256 "b18e631dd921e45576c601cddbe6d29d44f38cbabc03aaf1cc40d71b5306e6ca"
 
-  # automake brings us aclocal
   depends_on 'automake' => :build
   depends_on 'autoconf' => :build
   depends_on 'libtool' => :build
@@ -15,20 +13,13 @@ class PepCoreLibetpan < Formula
   def install
     system "./autogen.sh", "--prefix=#{prefix}"
     system "make"
-    system "/usr/bin/install_name_tool",
-               "-id", "@rpath/libetpan.17.dylib",
-               "./src/.libs/libetpan.17.dylib"
-    system "/usr/bin/install_name_tool",
-               "-add_rpath", "@executable_path/../lib",
-               "./src/.libs/libetpan.17.dylib"
+    system "/usr/bin/install_name_tool", "-id", "@rpath/libetpan.17.dylib",
+                                         "./src/.libs/libetpan.17.dylib"
+    system "/usr/bin/install_name_tool", "-add_rpath",
+                                         "@executable_path/../lib",
+                                         "./src/.libs/libetpan.17.dylib"
     system "make", "install"
-    # bin.install "dmidecode"
-    # man8.install "man/dmidecode.8"
   end
-
-  # test do
-  #  system "#{bin}/dmidecode"
-  # end
 
 end
 
