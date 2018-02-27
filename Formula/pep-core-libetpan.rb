@@ -2,8 +2,15 @@ class PepCoreLibetpan < Formula
   desc ""
   homepage ""
   version "0.1"
-  url "https://software.pep.foundation/enigmail/source/libetpan-0.1.tar.gz"
+  #url "https://software.pep.foundation/enigmail/source/libetpan-0.1.tar.gz"
+  url "file:///Users/claudio/pep/libetpan-0.1.tar.gz"
+
   sha256 "6a7d325821c928816c607a955953989be064378351c1bd280006e60dc883b298"
+
+  # automake brings us aclocal
+  depends_on 'automake' => :build
+  depends_on 'autoconf' => :build
+  depends_on 'libtool' => :build
 
   def install
     system "./autogen.sh", "--prefix=#{prefix}"
