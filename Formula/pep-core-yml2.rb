@@ -5,8 +5,8 @@ class PepCoreYml2 < Formula
   homepage "https://fdik.org/yml/toolchain"
   version "5.5"
 
-  url "https://github.com/x-pep/yml2/archive/5499a57bb268349483f94a1e35ff8fc5a1f86866.zip"
-  sha256 "3673a888225ea95a911531ea6e85562f772672fc94f9c8556f3b9b5d6f7e39e5"
+  url "https://github.com/x-pep/yml2/archive/f8b8a5d97a2a12d785a60bcdcefce2ac8c6f9127.zip"
+  sha256 "468d7d20def6fb308723493936482500c15cc0b6ebbd8808737efa9075ac1c26"
 
   depends_on "python" if MacOS.version <= :snow_leopard
   # One day: depends_on "python3"
